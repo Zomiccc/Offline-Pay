@@ -4,6 +4,9 @@ on:
   push:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   apk:
     runs-on: ubuntu-latest
@@ -19,7 +22,10 @@ jobs:
           cache: true
       - run: flutter pub get
       - run: flutter build apk --debug
-      - uses: actions/upload-artifact@v4
-        with:
-          name: offline-pay-apk
-          path: build/app/outputs/flutter-apk/app-debug.apk
+      - name: Publish APK as a release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cp build/app/outputs/flutter-apk/app-debug.apk offline-pay.apk
+          gh release delete latest --yes --cleanup-tag || true
+          gh release create latest offline-pay.apk --title "Offline-Pay (latest build)" --notes "Debug build of Offline-Pay. Download offline-pay.apk."
