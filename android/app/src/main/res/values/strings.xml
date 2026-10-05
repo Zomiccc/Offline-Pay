@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="ussd_service_desc">Lets OfflinePay type your answers into the phone\'s USSD menu for you and read the reply. It only acts while you run a transaction in the app.</string>
+    <string name="ussd_service_desc">Lets Offline-Pay type your answers into the phone\'s USSD menu for you and read the reply. It only acts while you run a transaction in the app.</string>
 </resources>

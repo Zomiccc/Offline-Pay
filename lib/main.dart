@@ -17,7 +17,7 @@ class App extends StatelessWidget {
   const App({super.key});
   @override
   Widget build(BuildContext context) => MaterialApp(
-        title: 'OfflinePay',
+        title: 'Offline-Pay',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
             colorSchemeSeed: const Color(0xFF0B8F4D), useMaterial3: true),
@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('OfflinePay')),
+      appBar: AppBar(title: const Text('Offline-Pay')),
       body: ListView(padding: const EdgeInsets.all(16), children: [
         if (!_helperOn)
           Card(
@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
               leading: const Icon(Icons.warning_amber),
               title: const Text('One-time setup needed'),
               subtitle: const Text(
-                  'Turn on "OfflinePay USSD helper" in Accessibility so the app can work the menus for you.'),
+                  'Turn on "Offline-Pay USSD helper" in Accessibility so the app can work the menus for you.'),
               trailing: FilledButton(
                   onPressed: () =>
                       _ch.invokeMethod('openAccessibilitySettings'),
